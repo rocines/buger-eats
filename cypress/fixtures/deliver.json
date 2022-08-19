@@ -1,0 +1,50 @@
+{
+    "signup": {
+        "name": "Rocines Neto",
+        "cpf": "00000000001",
+        "email": "rocines_neto@outlook.com",
+        "whatsapp": "11940028922",
+        "address": {
+            "postalcode": "03590120",
+            "street": "Avenida Padre Francisco de Toledo",
+            "number": "294",
+            "details": "Bloco 1 Ap 22",
+            "district": "Conjunto Habitacional Padre Manoel da Nóbrega",
+            "city_state": "São Paulo/SP"
+            },
+        "delivery_method": "Moto",
+        "cnh": "cnh-digital.jpg"
+    },
+    "cpf_inv":{
+        "name": "João Lucas",
+        "cpf": "100000000aa",
+        "email": "joao_lucas@outlook.com",
+        "whatsapp": "11912345678",
+        "address": {
+            "postalcode": "03590120",
+            "street": "Avenida Padre Francisco de Toledo",
+            "number": "320",
+            "details": "Bloco 2 Ap 51",
+            "district": "Conjunto Habitacional Padre Manoel da Nóbrega",
+            "city_state": "São Paulo/SP"
+            },
+        "delivery_method": "Van/Carro",
+        "cnh": "cnh-digital.jpg"
+    },
+    "email_inv": {
+        "name": "Rocines Neto",
+        "cpf": "00000000001",
+        "email": "rocines_netooutlook.com",
+        "whatsapp": "11940028922",
+        "address": {
+            "postalcode": "03590120",
+            "street": "Avenida Padre Francisco de Toledo",
+            "number": "294",
+            "details": "Bloco 1 Ap 22",
+            "district": "Conjunto Habitacional Padre Manoel da Nóbrega",
+            "city_state": "São Paulo/SP"
+            },
+        "delivery_method": "Moto",
+        "cnh": "cnh-digital.jpg"
+    }
+}
