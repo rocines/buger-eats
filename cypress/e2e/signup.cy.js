@@ -1,4 +1,5 @@
 import signup from '../pages/SignupPage'
+import signupFactory from '../factories/SignupFactory'
 
 describe('Signup', ()=>{
 
@@ -18,17 +19,18 @@ describe('Signup', ()=>{
     //     cy.log('Tudo aqui é executado sempre DEPOIS de CADA caso de teste')
     // })
 
-    beforeEach(function(){
-        cy.fixture('deliver').then((d)=>{
-            this.deliver = d
-        })
-    })
+    // beforeEach(function(){
+    //     cy.fixture('deliver').then((d)=>{
+    //         this.deliver = d
+    //     })
+    // })
 
-    it('User Should Be a Deliver', function(){
+    it.skip('User Should Be a Deliver', function(){
 
-        
+        var deliver = signupFactory.deliver()
+
         signup.go()
-        signup.fillForm(this.deliver.signup)
+        signup.fillForm(deliver)
         signup.submit()
                
         //validar mensagem de sucesso
@@ -39,10 +41,14 @@ describe('Signup', ()=>{
 
     })
 
-    it('Incorrect Document', function(){
+    it.skip('Incorrect Document', function(){
         
+        var deliver = signupFactory.deliver()
+
+        deliver.cpf = '000000000aa'
+
         signup.go()
-        signup.fillForm(this.deliver.cpf_inv)
+        signup.fillForm(deliver)
         signup.submit()
 
         //validar mensagem de erro
@@ -50,14 +56,31 @@ describe('Signup', ()=>{
         signup.alertMessageShouldBe(expectedMessage)
     })
 
-    it('Incorrect Email', function(){
+    it.skip('Incorrect Email', function(){
+
+        var deliver = signupFactory.deliver()
+
+        deliver.email = 'rocinesgmail.com'
+
         signup.go()
-        signup.fillForm(this.deliver.email_inv)
+        signup.fillForm(deliver)
         signup.submit()
 
         //validar mensagem de erro
         const expectedMessage = 'Oops! Email com formato inválido.'
         signup.alertMessageShouldBe(expectedMessage)
 
+    })
+
+    it('Required Fields', function(){
+        signup.go()
+        signup.submit()
+        signup.alertMessageShouldBe('É necessário informar o nome')
+        signup.alertMessageShouldBe('É necessário informar o CPF')
+        signup.alertMessageShouldBe('É necessário informar o email')
+        signup.alertMessageShouldBe('É necessário informar o CEP')
+        signup.alertMessageShouldBe('É necessário informar o número do endereço')
+        signup.alertMessageShouldBe('Selecione o método de entrega')
+        signup.alertMessageShouldBe('Adicione uma foto da sua CNH')
     })
 })
